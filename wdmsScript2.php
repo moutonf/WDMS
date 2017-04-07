@@ -49,9 +49,9 @@ performAction($var,$DBConnection);
 ///////**********************Check data in database function*******************************/////////////
 function checkBeforeUpdate($file_name, $DBConnection)
 {
-	mysqli_select_db($GLOBALS['dbname'],$DBConnection);
+	mysqli_select_db($DBConnection,$GLOBALS['dbname']);
 	$sql = "SELECT * FROM USERFILE WHERE file_name ='".basename($file_name)."' AND user_email='".$GLOBALS['user_email']."' AND ip_address='".$GLOBALS['web_address']."'";
-	$result = mysqli_query($sql, $DBConnection) or die("Error in $sql:" . mysqli_error($DBConnection));	
+	$result = mysqli_query($DBConnection,$sql) or die("Error in $sql:" . mysqli_error($DBConnection));	
 
 	while($row = mysqli_fetch_object($result)) {
 	      $GLOBALS['id_file'] = $row->userfile_id;
@@ -68,9 +68,9 @@ function checkForIntruderFiles($DBConnection)
 	{ 
 		if(basename($file_name) != '.' && basename($file_name) != '..')
 		{
-			mysqli_select_db($GLOBALS['dbname'],$DBConnection);
+			mysqli_select_db($DBConnection,$GLOBALS['dbname']);
 			$sql = "SELECT * FROM USERFILE WHERE user_email='".$GLOBALS['user_email']."' AND ip_address='".$GLOBALS['web_address']."' AND file_path='".$file_name."'";
-			$result = mysqli_query($sql, $DBConnection) or die("Error in $sql:" . mysqli_error($DBConnection));	
+			$result = mysqli_query($DBConnection,$sql) or die("Error in $sql:" . mysqli_error($DBConnection));	
 			
 			//echo "File Tested: ".basename($file_name)."\r\n";
 			if( mysqli_num_rows($result)!=0)
@@ -123,9 +123,9 @@ function dbConnection()
 ///////**********************Execute database function*******************************/////////////
 function executeStatement($sqlstat,$sqlcon)
 {
-	if(!mysqli_query($sqlstat,$sqlcon))
+	if(!mysqli_query($sqlcon,$sqlstat))
 	{
-	    die('Could not enter data: ' . mysqli_error())."\r\n";
+	    die('Could not enter data: ' . mysqli_error($sqlcon))."\r\n";
 	}
 	else
 	{
@@ -137,7 +137,7 @@ function executeStatement($sqlstat,$sqlcon)
 
 ///////**********************Send to database function*******************************/////////////
 function sendToDB($file_name,$hash,$last_date,$replaced_date,$file_status,$DBConnection)
-{ 
+{   
 	$new_size = filesize(realpath($file_name))/1024; 
 	$source_file = addslashes(file_get_contents(realpath($file_name)));	
 	$file_type = filetype(realpath($file_name));
@@ -145,16 +145,16 @@ function sendToDB($file_name,$hash,$last_date,$replaced_date,$file_status,$DBCon
 	global $usernum;
 
 	$sql = "SELECT * FROM USERS WHERE user_email ='".$GLOBALS['user_email']."'";
-	mysqli_select_db($GLOBALS['dbname'],$DBConnection);
-	$result = mysqli_query($sql, $DBConnection) or die("Error in $sql:" . mysqli_error($DBConnection));
+	mysqli_select_db($DBConnection,$GLOBALS['dbname']);
+	$result = mysqli_query($DBConnection,$sql) or die("Error in $sql:" . mysqli_error($DBConnection));
 	
 	while($row = mysqli_fetch_object($result))
 	{
 		$GLOBALS['usernum'] = $row->user_id;
 	} 
-	
+    
 	$mysql='INSERT INTO USERFILE'.'(file_name,user_id,user_email,userFileStatus,userLastChecked,userLastReplaced,file_path,file_size,hash,file_content,ip_address,replace_flag)'.'VALUES ("'.basename($file_name).'","'.$GLOBALS['usernum'].'","'.$GLOBALS['user_email'].'","'.$file_status.'","'.$GLOBALS['date1'].'","'.$GLOBALS['date1'].'","'.realpath($file_name).'","'.$new_size.'","'.$hash.'","'.$source_file.'","'.$GLOBALS['web_address'].'","'.$GLOBALS['file_value'].'")';
-	mysqli_select_db($GLOBALS['dbname']);
+	mysqli_select_db($DBConnection,$GLOBALS['dbname']);
 	executeStatement($mysql, $DBConnection);
 }
 ///////**********************Send to database function*******************************/////////////
@@ -199,9 +199,9 @@ function replaceFileStatus($id_name,$id_file,$id_content,$id_hash,$hash,$DBConne
 ///////**********************Force function*******************************/////////////
 function forceReplace($DBConnection)
 {
-    mysqli_select_db($GLOBALS['dbname'],$DBConnection);
+    mysqli_select_db($DBConnection,$GLOBALS['dbname']);
 	$sql = "SELECT * FROM USERFILE WHERE user_email='".$GLOBALS['user_email']."' AND ip_address='".$GLOBALS['web_address']."'";
-	$result = mysqli_query($sql, $DBConnection) or die("Error in $sql:" . mysqli_error($DBConnection));
+	$result = mysqli_query($DBConnection,$sql) or die("Error in $sql:" . mysqli_error($DBConnection));
     
     while($row = mysqli_fetch_object($result))
 	{
@@ -242,7 +242,7 @@ function updateDB($file_name,$replaced_date,$DBConnection)
   //$file_id = checkBeforeUpdate($file_name,$DBConnection);
 
   $mysql = "UPDATE USERFILE SET userLastReplaced ='".$replaced_date."' WHERE file_path ='".$file_name."'AND file_name='".basename($file_name)."'AND user_email='".$GLOBALS['user_email']."'AND ip_address='".$GLOBALS['web_address']."'";
-  mysqli_select_db($GLOBALS['dbname'],$DBConnection);
+  mysqli_select_db($DBConnection,$GLOBALS['dbname']);
   executeStatement($mysql,$DBConnection);
 }
 ///////**********************Update database function*******************************/////////////
@@ -253,7 +253,7 @@ function deleteContent($DBConnection)
 	echo "Clearing up the Database\r\n";
 
 	$mysql = "DELETE FROM USERFILE WHERE user_email='".$GLOBALS['user_email']."'AND ip_address='".$GLOBALS['web_address']."'";
-	mysqli_select_db($GLOBALS['dbname'],$DBConnection);
+	mysqli_select_db($DBConnection,$GLOBALS['dbname']);
 	executeStatement($mysql,$DBConnection);
 }
 ///////**********************Delete database function*******************************/////////////
@@ -272,7 +272,7 @@ function remakeScript($file_name,$the_content)
 function setStatus($file_name,$file_status,$DBConnection)
 {
 	$mysql = "UPDATE USERFILE SET userFileStatus ='".$file_status."' WHERE user_email='".$GLOBALS['user_email']."'AND ip_address='".$GLOBALS['web_address']."' AND file_path='".$file_name."'";
-	mysqli_select_db($GLOBALS['dbname'],$DBConnection);
+	mysqli_select_db($DBConnection,$GLOBALS['dbname']);
 	executeStatement($mysql,$DBConnection);
 }
 ///////**********************Reset file status*******************************/////////////
@@ -281,9 +281,9 @@ function setStatus($file_name,$file_status,$DBConnection)
 ///////**********************Check if file still exists function*******************************/////////////
 function existance($DBConnection)
 {
-	mysqli_select_db($GLOBALS['dbname'],$DBConnection);
+	mysqli_select_db($DBConnection,$GLOBALS['dbname']);
 	$sql = "SELECT * FROM USERFILE WHERE user_email='".$GLOBALS['user_email']."' AND ip_address='".$GLOBALS['web_address']."'";
-	$result = mysqli_query($sql, $DBConnection) or die("Error in $sql:" . mysqli_error($DBConnection));	
+	$result = mysqli_query($DBConnection,$sql) or die("Error in $sql:" . mysqli_error($DBConnection));	
 
 	while($row = mysqli_fetch_object($result))
 	{
