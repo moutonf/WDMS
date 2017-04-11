@@ -310,7 +310,17 @@ function existance($DBConnection)
         }
         else
         {
-            replaceFileStatus($id_name,$id_file,$id_content,$id_hash,md5_file($id_file),$DBConnection);
+            $fileDir = pathinfo($id_file,PATHINFO_DIRNAME);
+            if(!file_exists($id_file))
+            {
+                createPath($fileDir);
+                echo "\033[0mFile has been removed: "."\033[31m".$id_name."\r\n";
+                remakeScript($id_file,$id_content);       
+            }
+              else
+            {
+                 replaceFileStatus($id_name,$id_file,$id_content,$id_hash,md5_file($id_file),$DBConnection);
+            }
         }
 	}
 }
