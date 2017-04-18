@@ -1,0 +1,260 @@
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+--
+-- Database: `academycity`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `files`
+--
+
+CREATE TABLE IF NOT EXISTS `files` (
+  `userFileId` int(11) NOT NULL,
+  `userFileName` varchar(200) DEFAULT NULL,
+  `userLastChecked` varchar(200) DEFAULT NULL,
+  `userLastReplaced` varchar(200) DEFAULT NULL,
+  `userFileStatus` varchar(100) DEFAULT NULL,
+  `userMoreInfo` varchar(300) DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `files`
+--
+
+INSERT INTO `files` (`userFileId`, `userFileName`, `userLastChecked`, `userLastReplaced`, `userFileStatus`, `userMoreInfo`) VALUES
+(1, 'run.php', NULL, NULL, NULL, NULL),
+(2, 'try.html', NULL, NULL, NULL, NULL),
+(3, 'test_file.php', NULL, NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `userfile`
+--
+
+CREATE TABLE IF NOT EXISTS `userfile` (
+  `userfile_id` int(4) NOT NULL,
+  `file_name` varchar(200) NOT NULL,
+  `user_id` int(4) NOT NULL,
+  `user_ipaddress` varchar(50) NOT NULL,
+  `userFileStatus` varchar(200) NOT NULL,
+  `userLastChecked` date NOT NULL,
+  `userLastReplaced` date NOT NULL,
+  `userMoreInfo` varchar(200) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=333 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `userfile`
+--
+
+INSERT INTO `userfile` (`userfile_id`, `file_name`, `user_id`, `user_ipaddress`, `userFileStatus`, `userLastChecked`, `userLastReplaced`, `userMoreInfo`) VALUES
+(199, 'apache_pb.gif', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(200, 'apache_pb.png', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(201, 'apache_pb2.gif', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(202, 'apache_pb2.png', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(203, 'apache_pb2_ani.gif', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(204, 'applications.html', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(205, 'bitnami.css', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(206, 'COMMIT_EDITMSG', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(207, 'config', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(208, 'description', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(209, 'FETCH_HEAD', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(210, 'HEAD', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(211, 'applypatch-msg.sample', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(212, 'commit-msg.sample', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(213, 'post-update.sample', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(214, 'pre-applypatch.sample', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(215, 'pre-commit.sample', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(216, 'pre-push.sample', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(217, 'pre-rebase.sample', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(218, 'prepare-commit-msg.sample', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(219, 'update.sample', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(220, 'index', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(221, 'exclude', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(222, 'HEAD', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(223, 'master', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(224, 'cb18bca51a0510f3ee18d3b559dffecec64cff', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(225, 'fce4ab250137dbac421ff4ca9c86741623c2cc', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(226, 'eed2ef3516b96f64252127a68ad768ff5f1da6', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(227, 'bd4e3f67918fdefb87d7caab211be31342dee0', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(228, '63147daf6ca3fb41c9e5ae8ff581a3293695a3', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(229, '50f72027f67d826c9dcc49858c5f75ac6cca57', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(230, '18d683d41041c3ae40309e6ee225ec29ea0636', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(231, 'ae4e2aecfd0c7d33ffeb16f7b5a7baef127774', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(232, '04b64e2cd8b321a3efd015e12da4d2e64aea9d', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(233, '87752ea384decec8ef66918b963e946935872a', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(234, 'abef4f624235384164816a6181674f9c8072b7', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(235, '825dc642cb6eb9a060e54bf8d69288fbee4904', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(236, '6606cc7bbab790504ad2c2ddb89abb6279150f', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(237, 'c3ab2e7cda64c31a63b9087a89d72c718d2cf3', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(238, 'c3d5fbaea60228b079d50ad4ce53a141d837ca', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(239, 'c8dc50b33e79102a4fdd3834c33ba6bf0506d0', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(240, 'fde2f50cc444b6ae9666f71e0a4140a6a62e71', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(241, '015904a232de65ada29e8248a2fe062c52af91', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(242, '76795a7377b482200ea106d14a74702b2ef79b', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(243, 'ad0eae2a7d87ac1ae391b8fcc8ce4ad1960bf4', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(244, '1942cb97139cd2fbc0329e5bfffca185ee7e46', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(245, 'e060543590ffe153ad60cca523cb0e808cd577', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(246, '35021c37d67e35c3a00e0cc0fc008d0d67659e', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(247, '6f3f52d7ff8ea940fa327e75d78e87d22c33f2', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(248, '40ff035fb44a712a64eafa2c7761a2baefda4a', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(249, 'f8417d14f03bb0071055665e4bc0aa72080644', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(250, 'd9f1211861c5df7989046dda52dab63041b8af', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(251, '8268d6b60389479b166731f42f3d8c2169f390', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(252, '966c0a5fedf426b94dd72cdf4c76a1f5187564', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(253, '03997cef235c76d703d0834d07787916ed3fca', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(254, '76c96f9c5fa7b42761588decc62bacb1ebe0af', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(255, 'e385e7047792f80f79c142640d84b9a0672d66', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(256, 'ab450527fab445d15337e9d07d7273a1549f0b', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(257, 'f155a782bd6f432a8846f3d3b308ba6fa6856c', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(258, '5107763eb7b45fb5b3f1327208806101069543', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(259, 'dc333f3c35df9196cfea742ce606869d6bf63b', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(260, 'ea7eacae00ff2aab47dc8541e7e95b75974f94', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(261, '55c10de62992f531f8efd4c31482769c838613', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(262, '4a7d6fbfeaacc0993b4abd571a72939f92d82c', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(263, '0eee0dd960597be4451a9d8ea1a2b83e428f2b', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(264, '2ddef0baed2e34f724c4e467162c5fa02f9d6a', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(265, 'fca8bb6c478d2e35e1479ce501546ecd79f811', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(266, '12015a191663c51c4d8ac66db59a76820c2514', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(267, '8a67b4dcb658b65a24cd1972cdc671dbf09f38', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(268, 'master', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(269, '.htaccess', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(270, 'api.php', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(271, 'Rest.inc.php', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(272, 'Home.php', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(273, 'index.php', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(274, 'InvalidEmail.php', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(275, 'MyCSS.css', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(276, 'private.properties', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(277, 'private.xml', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(278, 'project.properties', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(279, 'project.xml', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(280, 'PasswordMatch.php', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(281, 'README.md', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(282, 'Register.php', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(283, 'Requirements.php', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(284, 'Test6 (1).php', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(285, 'Unsuccessful.php', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(286, 'ViewUsers.php', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(287, 'BokangTes2t.php', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(288, 'BokangTest.php', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(289, '.DS_Store', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(290, '.htaccess', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(291, 'API Documentation.docx', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(292, 'API Testing.docx', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(293, 'api.php', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(294, 'api_hashed.php', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(295, 'htaccess.txt', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(296, 'login.html', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(297, 'login.php', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(298, 'Rest.inc.php', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(299, 'users.sql', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(300, 'Testing.doc', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(301, 'truy.php.txt', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(302, '.DS_Store', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(303, '.htaccess', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(304, 'API Documentation.docx', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(305, 'API Testing.docx', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(306, 'api.php', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(307, 'api_hashed.php', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(308, 'htaccess.txt', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(309, 'login.html', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(310, 'login.php', 104, 'Glenn@gmail.com', 'green', '2017-02-07', '2017-02-07', 'file/user/'),
+(311, 'new  3.php', 105, 'Victor@gmail.com', 'green', '2017-02-08', '2017-02-08', 'file/user/'),
+(312, 'PopUp2.html', 105, 'Victor@gmail.com', 'green', '2017-02-08', '2017-02-08', 'file/user/'),
+(313, 'run.php', 105, 'Victor@gmail.com', 'green', '2017-02-08', '2017-02-08', 'file/user/'),
+(314, 'run2.php', 105, 'Victor@gmail.com', 'green', '2017-02-08', '2017-02-08', 'file/user/'),
+(315, 'Script.php', 105, 'Victor@gmail.com', 'green', '2017-02-08', '2017-02-08', 'file/user/'),
+(316, 'Tebogo.php', 105, 'Victor@gmail.com', 'green', '2017-02-08', '2017-02-08', 'file/user/'),
+(317, 'Test6 (1).php', 105, 'Victor@gmail.com', 'green', '2017-02-08', '2017-02-08', 'file/user/'),
+(318, 'Test6.php', 105, 'Victor@gmail.com', 'green', '2017-02-08', '2017-02-08', 'file/user/'),
+(319, 'TrialSetTimeoOut.php', 105, 'Victor@gmail.com', 'green', '2017-02-08', '2017-02-08', 'file/user/'),
+(320, 'Update.php', 105, 'Victor@gmail.com', 'green', '2017-02-08', '2017-02-08', 'file/user/'),
+(321, 'Update2.php', 105, 'Victor@gmail.com', 'green', '2017-02-08', '2017-02-08', 'file/user/'),
+(322, 'new  3.php', 105, 'Victor@gmail.com', 'green', '2017-02-08', '2017-02-08', 'file/user/'),
+(323, 'PopUp2.html', 105, 'Victor@gmail.com', 'green', '2017-02-08', '2017-02-08', 'file/user/'),
+(324, 'run.php', 105, 'Victor@gmail.com', 'green', '2017-02-08', '2017-02-08', 'file/user/'),
+(325, 'run2.php', 105, 'Victor@gmail.com', 'green', '2017-02-08', '2017-02-08', 'file/user/'),
+(326, 'Script.php', 105, 'Victor@gmail.com', 'green', '2017-02-08', '2017-02-08', 'file/user/'),
+(327, 'Tebogo.php', 105, 'Victor@gmail.com', 'green', '2017-02-08', '2017-02-08', 'file/user/'),
+(328, 'Test6 (1).php', 105, 'Victor@gmail.com', 'green', '2017-02-08', '2017-02-08', 'file/user/'),
+(329, 'Test6.php', 105, 'Victor@gmail.com', 'green', '2017-02-08', '2017-02-08', 'file/user/'),
+(330, 'TrialSetTimeoOut.php', 105, 'Victor@gmail.com', 'green', '2017-02-08', '2017-02-08', 'file/user/'),
+(331, 'Update.php', 105, 'Victor@gmail.com', 'green', '2017-02-08', '2017-02-08', 'file/user/'),
+(332, 'Update2.php', 105, 'Victor@gmail.com', 'green', '2017-02-08', '2017-02-08', 'file/user/');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE IF NOT EXISTS `users` (
+  `user_id` int(3) NOT NULL,
+  `user_fullname` varchar(50) NOT NULL,
+  `user_email` varchar(50) NOT NULL,
+  `user_password` varchar(50) NOT NULL,
+  `user_ipaddress` varchar(50) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=106 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`user_id`, `user_fullname`, `user_email`, `user_password`, `user_ipaddress`) VALUES
+(104, 'Glenn G', 'Glenn@gmail.com', '20c199f74a584a2b11bc4c89c40acaed', 'www.w3schools.com'),
+(105, 'Victor V', 'Victor@gmail.com', 'f89e8628714cb973df02670076a4f490', 'www.w3schools.com');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `files`
+--
+ALTER TABLE `files`
+  ADD PRIMARY KEY (`userFileId`);
+
+--
+-- Indexes for table `userfile`
+--
+ALTER TABLE `userfile`
+  ADD UNIQUE KEY `userfile_id` (`userfile_id`), ADD UNIQUE KEY `userfile_id_2` (`userfile_id`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`user_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `files`
+--
+ALTER TABLE `files`
+  MODIFY `userFileId` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `userfile`
+--
+ALTER TABLE `userfile`
+  MODIFY `userfile_id` int(4) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=333;
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `user_id` int(3) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=106;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

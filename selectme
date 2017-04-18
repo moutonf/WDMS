@@ -1,0 +1,7 @@
+<div class="styled-select blue semi-square">
+  <select>
+    <option>Here is the first option</option>
+    <option>The second option</option>
+    <option>The third option</option>
+  </select>
+</div>
