@@ -1,3 +1,6 @@
+<?php
+session_start(); 
+?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
     <head>
@@ -44,25 +47,24 @@ table.sortable thead {
     </head>
     <body>
 	<?php
+	if ((isset($_SESSION["admin"])))
+	{
+		$logged_in_person = $_SESSION["admin"];
+	}
 	
-	 session_start();   //starting the session
-			if(!$_SESSION['admin']){
-				header('Location: index.php');
-			}
+	$servername = "127.0.0.1";
+	$username = "root";
+	$password = "";
+	$dbname = "academycity";
 	
-	
-			$servername = "127.0.0.1";
-			$username = "root";
-			$password = "";
-			$dbname = "academycity";
-
-			// Create connection
-			$conn = new mysqli($servername, $username, $password, $dbname);
-			// Check connection
-			if ($conn->connect_error) {
-				die("Connection failed: " . $conn->connect_error);
-			}						
-		?>
+	// Create connection
+	$conn = new mysqli($servername, $username, $password, $dbname);
+	// Check connection
+	if ($conn->connect_error) 
+	{
+		die("Connection failed: " . $conn->connect_error);
+	}						
+	?>
         <div class ="top-content">
             <div class ="inner-bg" style = "padding: 12px 100px 100px 100px;">
 				<div class ="row">
@@ -83,8 +85,8 @@ table.sortable thead {
 	                        		</div>
 									<div class="form-top-right">
 	                        			
-										<!--<a href="http://146.64.213.31/WDMS/Bokang/delete.php"><i class="fa fa-trash"></i></a>-->
-										<a href="http://146.64.213.31/WDMS/Bokang/intranet.php"><i class="fa fa-refresh"></i></a>
+
+										<a href="/Original/intranet.php"><i class="fa fa-refresh"></i></a>
 	                        		</div>
 									
 									<form class = "form-control">
@@ -94,7 +96,7 @@ table.sortable thead {
 											
 										<div class = "styled-select blue semi-square" style = "padding: 3px 185px 4px 5px; margin: 5px 5px 5px 5px; " >
 												<select  id="bk" name="email" style = "">
-												<option  value="default">select user</option>
+												<option  value="default">Select User</option>
 												<?php 
 													$conn2 = new mysqli($servername, $username, $password, $dbname);
 													$query2 ="SELECT user_email FROM USERS WHERE NOT user_email='admin@csir.co.za' ";
@@ -122,7 +124,7 @@ table.sortable thead {
 	                        		
 	                            </div>
 								<div class="form-bottom">
-									<form name="login" action="http://146.64.213.31/WDMS/Bokang/API/Logout" class="login-form" method="POST">
+									<form name="login" action="/Original/API/Logout" class="login-form" method="POST">
 											
 										
                         <table style = "border: inset 1px black; width: 100%" class="sortable">
@@ -225,14 +227,14 @@ table.sortable thead {
 					</div>
 				</div>
 			</div>
-			<!--<form name = "delete" action = "http://146.64.213.31/WDMS/Bokang/delete.php" method = "POST">
+			<!--<form name = "delete" action = "/Original/delete.php" method = "POST">
 										
 			<button type="submit" name="btnDelete" class="btn" "padding: 5px 500px 2px 500px;">Delete </button><br/>
 										
 		</form>-->
 		</div>
 		
-		<form action="http://146.64.213.31/WDMS/Bokang/API/Logout" method="POST">
+		<form action="/Original/API/Logout" method="POST">
 			<button type="submit" class="btn" style = "padding: 5px 100px 2px 100px;">Log Out</button>
 		</form>
 	</div>

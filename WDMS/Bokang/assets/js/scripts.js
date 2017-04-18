@@ -26,6 +26,7 @@ jQuery(document).ready(function() {
     	});
     	
     });
+
     
     /*
         Registration form validation

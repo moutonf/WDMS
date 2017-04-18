@@ -1,3 +1,6 @@
+<?php
+	session_start();
+?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
     <head>
@@ -32,41 +35,58 @@
         <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
         <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
 		
-        <title>Login</title>
+		
+
+	
+		
+    <title>Login</title>
     </head>
     <body>
         <div class ="top-content">
-            <div class ="inner-bg">
-				<div class ="row">											
+		<div class ="row">											
 					<div class ="description">
 						<p>
 							<h5 style = "font : normal 25px/25px Georgia, sans-serif; color : white ;">Web Defacement Monitoring Tool</h5>	
 						</p>
 					</div>							
 				</div>
-                <div class ="container">										
-					<div class="row">
-						<div class="col-sm-5">
+            <div class ="inner-bg " style = "padding:10px 10px 50px 660px; ">
+                <div class ="container" >	
+					<div class="col-sm-5">
+						<div class="row">
 							<div class="form-box">
 								<div class="form-top">
 	                        		<div class="form-top-left">
 	                        			<h3>Login</h3>
-	                            		<p>Enter username and password below:</p>
+	                            		<p>	
+											<?php
+											if (isset($_SESSION["error"]) == NULL)
+											{
+											   echo	"Enter Email address and Password";
+											}
+											else
+											{
+											   echo $_SESSION["error"];
+											}
+											?>
+											
+											<?php $_SESSION["error"] = NULL;?>
+										</p>
 	                        		</div>
 	                        		<div class="form-top-right">
 	                        			<i class="fa fa-lock"></i>
 	                        		</div>
 	                            </div>
 								<div class="form-bottom">
-									<form name="login" action="http://146.64.213.31/WDMS/Bokang/API/login" class="login-form" method="POST">
+									<form name="login" action="//Original/API/login" class="login-form" method="POST">
 										<div class ="form-group">
 											<label for="user_email" class="sr-only">E-mail</label>
-											<input type="text" id ="user_email" required name="user_email" value="" class ="form-username form-control" placeholder="Enter your email" /> <!--- Email input box--->								
+											<input type="text" id ="user_email" required name="user_email" value="" class ="form-username form-control" placeholder="Enter your email" onblur="validate()" /> <!--- Email input box--->								
 										</div>
 										
 										<div class ="form-group">
 											<label for="user_password" class="sr-only">Password</label>
-											<input type="password" id ="user_password" required name="user_password" value="" class ="form-password form-control" placeholder="Enter your password" /> <!--- Email input box--->								
+											<input type="password" id ="user_password" required name="user_password" value="" class ="form-password form-control" placeholder="Enter your password" onblur="validate()"/> <!--- Password input box--->								
 										</div>
 										
 										<button type="submit" class="btn">Log In</button> 
@@ -100,6 +120,7 @@
         		</div>
         	</div>
         </footer>
+		
 
         <!-- Javascript -->
         <script src="assets/js/jquery-1.11.1.min.js"></script>

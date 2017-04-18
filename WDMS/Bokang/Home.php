@@ -1,3 +1,6 @@
+<?php
+session_start(); 
+?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
     <head>
@@ -46,25 +49,25 @@ table.sortable thead {
 		
         <title>Home</title>
 		<?php
-		session_start();   //starting the session
-                            if(!$_SESSION['csir']){
-								header('Location: index.php');
-                            }
+			if ((isset($_SESSION["csir"])))
+			{
+				$logged_in_person = $_SESSION["csir"];
+			}
+			
+			
+			$FileID= "";
+			$servername = "127.0.0.1";
+			$username = "root";
+			$password = "";
+			$dbname = "academycity";
 
-                            $logged_in_person = $_SESSION['csir'];
-							
-							 $FileID= "";
-                            $servername = "127.0.0.1";
-                            $username = "root";
-                            $password = "";
-                            $dbname = "academycity";
-
-                            // Create connection
-                            $conn = new mysqli($servername, $username, $password, $dbname);
-                            // Check connection
-                            if ($conn->connect_error) {
-                                    die("Connection failed: " . $conn->connect_error);
-                            }
+			// Create connection
+			$conn = new mysqli($servername, $username, $password, $dbname);
+			// Check connection
+			if ($conn->connect_error) {
+					die("Connection failed: " . $conn->connect_error);
+			}
+			
 		?>
     </head>
     <body>
@@ -88,13 +91,13 @@ table.sortable thead {
 	                        		</div>
 	                        		<div class="form-top-right">
 	                        			<!--<i class="fa fa-info-circle"></i>-->
-										<a href="http://146.64.213.31/WDMS/Bokang/Home.php"><i class="fa fa-refresh"></i></a>
+										<a href="//Original/Home.php"><i class="fa fa-refresh"></i></a>
 	                        		</div>
 	                            </div>
 								<div class="form-bottom">
 								
 									
-									<form name="home" action="http://146.64.213.31/WDMS/Bokang/API/Logout" class="login-form" method="POST">
+									<form name="home" action="/Original/API/Logout" class="login-form" method="POST">
 											
 										
                         <table style = "border: inset 1px black; width: 100%" name="myTable" class="sortable">
@@ -166,7 +169,7 @@ table.sortable thead {
 				</div>
 			</div>
 		</div>
-		<form action="http://146.64.213.31/WDMS/Bokang/API/Logout" method="POST">
+		<form action="//Original/API/Logout" method="POST">
 			<button type="submit" class="btn" style = "padding: 5px 100px 2px 100px;">Log Out</button>
 		</form>
 	</div>
