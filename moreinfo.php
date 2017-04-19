@@ -92,11 +92,11 @@ session_start();
 	                        		</div>
 	                        		<div class="form-top-right">
 	                        			
-										<a href="/Original/Home.php"><i class="fa fa-backward"></i></a>
+										<a href="/WDMT/Home.php"><i class="fa fa-backward"></i></a>
 	                        		</div>
 	                            </div>
 								<div class="form-bottom">
-									<form name="home" action="/Original/API/updateFlag" class="login-form" method="POST">
+									<form name="home" action="/WDMT/API/updateFlag" class="login-form" method="POST">
 											
 										
                         <table style = "border: inset 1px black; width: 100%" class="table">
@@ -256,7 +256,7 @@ session_start();
 				</div>
 			</div>
 		</div>
-		<form action="/Original/API/Logout" method="POST">
+		<form action="/WDMT/API/Logout" method="POST">
 			<button type="submit" class="btn" style = "padding: 5px 100px 2px 100px;">Log Out</button>
 		</form>
 	</div>

@@ -6,14 +6,14 @@
 	class API extends REST {
 
 		public $data = "";
-		public $url = "/Original/Home.php";
-		public $url2 = "/Original/Unsuccessful.php";              
-		public $url4 = "/Original/index.php";
-		public $url5 = "/Original/Register.php";
-		public $url3 = "/Original/intranet.php";
-		public $url6 = "/Original/admin.php";
-		public $url7 = "/Original/moreinfo.php? " . "UserFileID=". "h";
-		public $url8 = "/Original/Test2.php";
+		public $url = "/WDMT/Home.php";
+		public $url2 = "/WDMT/Unsuccessful.php";              
+		public $url4 = "/WDMT/index.php";
+		public $url5 = "/WDMT/Register.php";
+		public $url3 = "/WDMT/intranet.php";
+		public $url6 = "/WDMT/admin.php";
+		public $url7 = "/WDMT/moreinfo.php? " . "UserFileID=". "h";
+		public $url8 = "/WDMT/Test2.php";
 	
  
 
@@ -158,17 +158,31 @@
 			session_start();
 			$_SESSION["error"] = "Invalid Email or Password";
 			session_write_close();
-			header("Location: /Original/index.php");
+			header("Location: /WDMT/index.php");
 		}
 		
 		public function errorRegisterPage()
 		{
 			session_start();
-			$_SESSION["the_error"] = "Please Fill In All Required Details";
+			$_SESSION["the_error"] = "Please Fill In Details Correctly";
+			session_write_close();
+			header("Location: /WDMT/Register.php");
+		}
+		
+		public function errorMatch()
+		{
+			session_start();
 			$_SESSION["the_error1"] = "Passwords Do Not Match";
+			session_write_close();
+			header("Location: /WDMT/Register.php");
+		}
+		
+		public function errorRequirements()
+		{
+			session_start();
 			$_SESSION["require_pass"] = "Passwords Does Not Meet Requirements";
 			session_write_close();
-			header("Location: /Original/Register.php");
+			header("Location: /WDMT/Register.php");
 		}
 		
 
@@ -274,7 +288,7 @@
 								  session_start();
 								  $_SESSION["admin"] = 'admin';
 								  session_write_close();
-								  header("Location: /Original/intranet.php");
+								  header("Location: /WDMT/intranet.php");
  
 							}
 							else
@@ -282,7 +296,7 @@
 								  session_start();
 								  $_SESSION["csir"] = $email;
 								  session_write_close();
-								  header("Location: /Original/Home.php");
+								  header("Location: /WDMT/Home.php");
 							}	  
 						}
 					}
@@ -330,36 +344,44 @@
 			   }
 			   else
 			   {
+					$this->errorMatch();
 					$valid_email = false;
 			   }
 				
 			   if ($user_password == $user_passwordconf )
 			   {  
-					$valid_password = true;
+					$valid_password1 = true;
 			   }
 			   else
 			   {
-					$valid_password = false;
+					$valid_password1 = false;
 			   }
 				
 				if($valid_email == true)
-				{
-					if($valid_password1 == true && $valid_password == true)
+				{				
+					if($valid_password == true)
 					{
-						$passwordhash = hash('sha256', $password); //hash password
-						$sql = "INSERT INTO users (user_fullname, user_email, user_password) VALUES ('$user_fullname', '$user_email', '".md5($user_passwordhash)."')";
-						if (!mysqli_query($the_connection, $sql)) 
+						if($valid_password == true)
 						{
-							echo "Error: " . $sql . "<br>" . mysqli_error($the_connection);
+							$passwordhash = hash('sha256', $password); //hash password
+							$sql = "INSERT INTO users (user_fullname, user_email, user_password) VALUES ('$user_fullname', '$user_email', '".md5($user_passwordhash)."')";
+							if (!mysqli_query($the_connection, $sql)) 
+							{
+								echo "Error: " . $sql . "<br>" . mysqli_error($the_connection);
+							}
+							else
+							{
+								$this->GoBack();
+							}
 						}
 						else
 						{
-							$this->GoBack();
+							$this->errorMatch();
 						}
 					}
 					else
 					{
-						$this->errorRegisterPage();
+						$this->errorRequirements();
 					}
 				}
 				else

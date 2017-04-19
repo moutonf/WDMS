@@ -79,6 +79,8 @@
 											<?php 
 												$_SESSION["the_error"] = NULL;
 												$_SESSION["the_error1"] = NULL;
+												$_SESSION["require_pass"] = NULL;
+												
 											?>
 										</p>
 	                        		</div>
@@ -87,7 +89,7 @@
 	                        		</div>
 	                            </div>
 								<div class="form-bottom">
-									<form name="login" action="/Original/API/insertUser" class="login-form" method="POST">																												
+									<form name="login" action="/WDMT/API/insertUser" class="login-form" method="POST">																												
 										<div class="form-group">
 				                    		<label class="sr-only" for="user_fullname">Full names</label>
 				                        	<input type="text" required name="user_fullname" placeholder="Full names..." class="form-first-name form-control" id="user_fullname">

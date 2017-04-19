@@ -1,6 +1,5 @@
-<?php
-session_start(); 
-?>
+
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
     <head>
@@ -8,15 +7,6 @@ session_start();
 		
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-		<script src="sorttable.js"></script>
-		<style>
-/* Sortable tables */
-table.sortable thead {
-    background: rgba(54, 25, 25, .2);
-    font-weight: bold;
-    cursor: default;
-}
-</style>
         <img src="images/123.png"class="img-rounded" width="300" height="130"/>
         <style>.img-rounded</style>
 		
@@ -47,24 +37,19 @@ table.sortable thead {
     </head>
     <body>
 	<?php
-	if ((isset($_SESSION["admin"])))
-	{
-		$logged_in_person = $_SESSION["admin"];
-	}
 	
-	$servername = "127.0.0.1";
-	$username = "root";
-	$password = "";
-	$dbname = "academycity";
-	
-	// Create connection
-	$conn = new mysqli($servername, $username, $password, $dbname);
-	// Check connection
-	if ($conn->connect_error) 
-	{
-		die("Connection failed: " . $conn->connect_error);
-	}						
-	?>
+			$servername = "127.0.0.1";
+			$username = "root";
+			$password = "";
+			$dbname = "academycity";
+
+			// Create connection
+			$conn = new mysqli($servername, $username, $password, $dbname);
+			// Check connection
+			if ($conn->connect_error) {
+				die("Connection failed: " . $conn->connect_error);
+			}						
+		?>
         <div class ="top-content">
             <div class ="inner-bg" style = "padding: 12px 100px 100px 100px;">
 				<div class ="row">
@@ -84,22 +69,21 @@ table.sortable thead {
 	                            		
 	                        		</div>
 									<div class="form-top-right">
-	                        			
-
-										<a href="/Original/intranet.php"><i class="fa fa-refresh"></i></a>
+	                        			<i class="fa fa-info-circle"></i>
+										<a href="/WDMT/Update.php"><i class="fa fa-refresh"></i></a>
 	                        		</div>
-									
+									<div class="">
 									<form class = "form-control">
 									
 									</form >
-										<form name="view" action="intranet.php" method="POST">
+										<form name="view" action="intranet2.php" method="POST">
 											
-										<div class = "styled-select blue semi-square" style = "padding: 3px 185px 4px 5px; margin: 5px 5px 5px 5px; " >
-												<select  id="bk" name="email" style = "">
-												<option  value="default">Select User</option>
+											<div class = "styled-select blue semi-square" style = "">
+												<select name="email" class = "textarea form-control">
+												<option value="default">Default</option>
 												<?php 
 													$conn2 = new mysqli($servername, $username, $password, $dbname);
-													$query2 ="SELECT user_email FROM USERS WHERE NOT user_email='admin@csir.co.za' ";
+													$query2 ="SELECT user_email FROM USERS";
 													$result = mysqli_query($conn2,$query2);
 													while (@$row = mysqli_fetch_row($result)){
 													echo "<option value =".  $row[0] .">" . $row[0] . "</option>";
@@ -107,27 +91,25 @@ table.sortable thead {
 
 												?>
 											
-											</select><br>
-											<br>
-											
+										</select><br>
+										<br>
 										</div>
 										
 										<!--<button type="submit" name="btnView" value="View" class = "btn">-->
 										
-											<br/><button type="submit" name="btnView" class="btn" style = "padding: 2px 120px 5px 130px;">View</button><br/>	
-											
+											<button type="submit" name="btnView" class="btn" "padding: 5px 500px 2px 500px;">View</button><br/>	
 											
 										</form>
 										
-									
+										</div>
 										
 	                        		
 	                            </div>
 								<div class="form-bottom">
-									<form name="login" action="/Original/API/Logout" class="login-form" method="POST">
+									<form name="login" action="/WDMT/API/Logout" class="login-form" method="POST">
 											
 										
-                        <table style = "border: inset 1px black; width: 100%" class="sortable">
+                        <table style = "border: inset 1px black; width: 100%" class="table">
                             <thead>
                               <tr style = "color: #00bfff ; width: 100%; font-weight: 200%" class = "">
                                     <th>Authorised Personnel</th>
@@ -136,8 +118,6 @@ table.sortable thead {
 									<th>File Status</th>
                                     <th>Action</th>
                               </tr>
-							</thead>
-							<tbody> 
 
                            
 
@@ -179,7 +159,6 @@ table.sortable thead {
 															//var_dump($row[2])."\r\n";
 														   //taking data from database to views the form table
 														$FileID=$row[0];
-														 $field=$row[4];
                               //$colour=$row[11];
                               echo "<tr class ='' style = 'color : 	#f5f4c4	;font-size: 14px;' >";
                               echo"<th>";
@@ -190,21 +169,7 @@ table.sortable thead {
                               echo"</th><th>";
                               echo $row[11];
                               echo"</th><th>";
-							  
-										if($field == "0")
-										{
-											echo '<img src="images/circle-xxl.png"" alt="" width="15" height="15"/>';
-										}
-										if($field == "1")
-										{
-											echo '<img src="images/yellow.png"" alt="" width="14" height="14"/>';
-										}
-										if($field == "2")
-										{
-											echo '<img src="images/red.png"" alt="" width="20" height="20"/>';
-										}
-									
-                              //echo $row[4];
+                              echo $row[4];
                               echo"</th><th>";
                               echo"<a href=moreinfo.php?UserFileID=$FileID>More Info</a>";
                               echo "</th></tr>";
@@ -216,25 +181,41 @@ table.sortable thead {
 																																	  
 													?>
 
-               
+               </thead>
              </tbody>
 			
             </table> 
-									</form>
 									
+										
+									</form>	
+
+									<form action="">
+
+									<div class = "styled-select blue semi-square" style = "">
+												<select name="ip_address" class = "textarea form-control">
+												<option value="default">Default</option>
+												<?php 
+													$conn2 = new mysqli($servername, $username, $password, $dbname);
+													$query2 ="SELECT ip_address FROM USERFILE WHERE  user_email = '". $_POST['email']."'";
+													$result = mysqli_query($conn2,$query2);
+													while (@$row = mysqli_fetch_row($result)){
+													echo "<option value =".  $row[0] .">" . $row[0] . "</option>";
+													}
+
+												?>
+											
+										</select><br>
+										<br>
+										</div>
+										<button type="submit" name="btnView" class="btn" "padding: 5px 500px 2px 500px;">Delete</button><br/>	
+										</form>
 							</div>
 						</div>	
 					</div>
 				</div>
 			</div>
-			<!--<form name = "delete" action = "/Original/delete.php" method = "POST">
-										
-			<button type="submit" name="btnDelete" class="btn" "padding: 5px 500px 2px 500px;">Delete </button><br/>
-										
-		</form>-->
 		</div>
-		
-		<form action="/Original/API/Logout" method="POST">
+		<form action="146.64.213.31/WDMS/Bokang/API/Logout" method="POST">
 			<button type="submit" class="btn" style = "padding: 5px 100px 2px 100px;">Log Out</button>
 		</form>
 	</div>

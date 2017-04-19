@@ -1,7 +1,3 @@
-<!--
-To change this template, choose Tools | Templates
-and open the template in the editor.
--->
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
     <head>
@@ -19,8 +15,6 @@ and open the template in the editor.
             <li>May contain any of these characters: !@#$%</li>
             <li>Must be 8-16 characters</li>
         </ol>
-
-
 
         <?php
         // put your code here

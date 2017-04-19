@@ -1,5 +1,6 @@
-
-
+<?php
+session_start(); 
+?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
     <head>
@@ -7,7 +8,7 @@
 		
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <img src="images/123.png"class="img-rounded" width="300" height="130"/>
+        <a href = "intranet.php"> <img src="images/123.png"class="img-rounded" width="300" height="130"/></a>
         <style>.img-rounded</style>
 		
        
@@ -33,10 +34,14 @@
         <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
         <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
 		
-        <title>Management</title>
+        <title>Delete</title>
     </head>
     <body>
 	<?php
+			if ((isset($_SESSION["csir"])))
+			{
+				$logged_in_person = $_SESSION["csir"];
+			}
 	
 			$servername = "127.0.0.1";
 			$username = "root";
@@ -69,18 +74,18 @@
 	                            		
 	                        		</div>
 									<div class="form-top-right">
-	                        			<i class="fa fa-info-circle"></i>
-										<a href="/Original/Update.php"><i class="fa fa-refresh"></i></a>
+	                        			<a href="/WDMT/intranet.php"><i class="fa fa-backward"></i></a>
+										<a href="/WDMT/delete.php"><i class="fa fa-refresh"></i></a>
 	                        		</div>
 									<div class="">
 									<form class = "form-control">
 									
 									</form >
-										<form name="view" action="intranet2.php" method="POST">
+										<form name="view" action="delete.php" method="POST">
 											
-											<div class = "styled-select blue semi-square" style = "">
-												<select name="email" class = "textarea form-control">
-												<option value="default">Default</option>
+											<div class = "styled-select blue semi-square" style = "padding: 3px 185px 4px 5px; margin: 5px 5px 5px 5px; " style = "">
+												<select id = "bk" name="email">
+												<option value="default">Select an option</option>
 												<?php 
 													$conn2 = new mysqli($servername, $username, $password, $dbname);
 													$query2 ="SELECT user_email FROM USERS";
@@ -97,7 +102,7 @@
 										
 										<!--<button type="submit" name="btnView" value="View" class = "btn">-->
 										
-											<button type="submit" name="btnView" class="btn" "padding: 5px 500px 2px 500px;">View</button><br/>	
+											<button type="submit" name="btnSelectUser" class="btn" "padding: 5px 500px 2px 500px;">Search Domains</button><br/>	
 											
 										</form>
 										
@@ -106,92 +111,39 @@
 	                        		
 	                            </div>
 								<div class="form-bottom">
-									<form name="login" action="/Original/API/Logout" class="login-form" method="POST">
+									
 											
 										
-                        <table style = "border: inset 1px black; width: 100%" class="table">
-                            <thead>
-                              <tr style = "color: #00bfff ; width: 100%; font-weight: 200%" class = "">
-                                    <th>Authorised Personnel</th>
-                                    <th>File Name</th>
-                                    <th>Domain Name</th>
-									<th>File Status</th>
-                                    <th>Action</th>
-                              </tr>
+                        
 
-                           
-
-                    <script>
-                    // put your code here
-                    /********************************************************
-                       *    Utility functions for datatable column display     *
-                       ********************************************************/
-                       function getColour(val)
-                       {
-                                    // Do not draw the rectangle if indicator does not have a tlp marking/tag
-                                    if(val != "red" && val != "green" && val != "white" && val != "amber") return "";
-                                    var svg1 = "<svg width=\"20\" height=\"20\"><circle cx=\"10\" cy=\"10\" r=\"9\" width=\"35\" height=\"26\" style=\'fill:";
-                                    var svg2 = ";\stroke:black;stroke-width:1.2;opacity:0.6\'></circle></svg>"
-                                    if(val.toLowerCase() == "amber") return svg1 + "yellow" + svg2;
-                                    else
-                                            return svg1 + val + svg2;
-                       }
-                    var table = $(".table");
-                            var $tr = $("tr").append(
-                                    $("<td>").html(getColour("green"))
-                            );
-                            $tr.appendTo(".table > tbody");
-
-                    </script>
+                    
 					
 					<?php
 	
 													if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 													//something posted
 													
-													if (isset($_POST['btnView'])) {
+													if (isset($_POST['btnSelectUser'])) {
 														// btnView
 													
 													$conn2 = new mysqli($servername, $username, $password, $dbname);
-													$query2 ="SELECT * FROM USERFILE WHERE user_email = '". $_POST['email']."'";
+													$query2 ="SELECT ip_address FROM USERFILE WHERE user_email = '". $_POST['email']."'";
 													$result = mysqli_query($conn2,$query2);
 													while (@$row = mysqli_fetch_row($result)){
 															//var_dump($row[2])."\r\n";
 														   //taking data from database to views the form table
-														$FileID=$row[0];
-                              //$colour=$row[11];
-                              echo "<tr class ='' style = 'color : 	#f5f4c4	;font-size: 14px;' >";
-                              echo"<th>";
-                              echo $row[3];
-                              echo"</th><th>";
-
-                              echo $row[1];
-                              echo"</th><th>";
-                              echo $row[11];
-                              echo"</th><th>";
-                              echo $row[4];
-                              echo"</th><th>";
-                              echo"<a href=moreinfo.php?UserFileID=$FileID>More Info</a>";
-                              echo "</th></tr>";
-
+														
 																		  
 													}
 													}
-													}
+													
 																																	  
 													?>
 
-               </thead>
-             </tbody>
-			
-            </table> 
-									
-										
-									</form>	
 
-									<form action="">
+									<form name="deleteForm" action="/WDMT/delete.php" method="POST">
 
-									<div class = "styled-select blue semi-square" style = "">
+									<div class = "" style = "">
 												<select name="ip_address" class = "textarea form-control">
 												<option value="default">Default</option>
 												<?php 
@@ -207,15 +159,42 @@
 										</select><br>
 										<br>
 										</div>
-										<button type="submit" name="btnView" class="btn" "padding: 5px 500px 2px 500px;">Delete</button><br/>	
+										<button type="submit" name="btnDelete" class="btn" "padding: 5px 500px 2px 500px;">Delete Domain</button>	
 										</form>
+										
+										<?php
+										
+										if (isset($_POST['btnDelete'])) {
+														// btnView
+													$_POST['ip_address'] . '<br/>';
+													echo "Domain deleted!";
+																										
+													$conn2 = new mysqli($servername, $username, $password, $dbname);
+													$query3 ="DELETE FROM USERFILE WHERE ip_address = '". $_POST['ip_address']."'";
+													$result = mysqli_query($conn2,$query3);
+													
+													 if(! $result ) {
+													   die('Could not delete data: ' . mysql_error());
+													}
+													
+													
+													@mysql_close($conn2);
+													
+													}
+																						}
+													
+													
+										?>
+										
+										
 							</div>
+							</form>
 						</div>	
 					</div>
 				</div>
 			</div>
 		</div>
-		<form action="146.64.213.31/WDMS/Bokang/API/Logout" method="POST">
+		<form action="146.64.213.31/WDMS/bokang/API/Logout" method="POST">
 			<button type="submit" class="btn" style = "padding: 5px 100px 2px 100px;">Log Out</button>
 		</form>
 	</div>
