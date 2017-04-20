@@ -55,7 +55,7 @@
 	                        			<h3>Sign Up!</h3>
 	                            		<p>			
 											<?php
-												if (isset($_SESSION["the_error"]) == NULL && isset($_SESSION["the_error1"]) == NULL && $_SESSION["require_pass"] == NULL)
+												if (isset($_SESSION["the_error"]) == NULL && isset($_SESSION["the_error1"]) == NULL && isset($_SESSION["require_pass"]) == NULL)
 												{
 												   echo	"Enter Your Details Below";
 												}

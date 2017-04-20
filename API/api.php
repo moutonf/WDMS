@@ -344,7 +344,6 @@
 			   }
 			   else
 			   {
-					$this->errorMatch();
 					$valid_email = false;
 			   }
 				
@@ -361,7 +360,7 @@
 				{				
 					if($valid_password == true)
 					{
-						if($valid_password == true)
+						if($valid_password1 == true)
 						{
 							$passwordhash = hash('sha256', $password); //hash password
 							$sql = "INSERT INTO users (user_fullname, user_email, user_password) VALUES ('$user_fullname', '$user_email', '".md5($user_passwordhash)."')";

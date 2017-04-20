@@ -80,7 +80,7 @@
 	                        		</div>
 	                            </div>
 								<div class="form-bottom">
-									<form name="login" action="/WDMT//API/login" class="login-form" method="POST">
+									<form name="login" action="/WDMT/API/login" class="login-form" method="POST">
 										<div class ="form-group">
 											<label for="user_email" class="sr-only">E-mail</label>
 											<input type="text" id ="user_email" required name="user_email" value="" class ="form-username form-control" placeholder="Enter your email" onblur="validate()" /> <!--- Email input box--->								
