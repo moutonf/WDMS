@@ -164,7 +164,15 @@
 		public function errorRegisterPage()
 		{
 			session_start();
-			$_SESSION["the_error"] = "Please Fill In Details Correctly";
+			$_SESSION["the_error"] = "Invalid Email Address";
+			session_write_close();
+			header("Location: /WDMT/Register.php");
+		}
+		
+		public function errorDetails()
+		{
+			session_start();
+			$_SESSION["the_error"] = "Invalid User Details Were Entered";
 			session_write_close();
 			header("Location: /WDMT/Register.php");
 		}
@@ -327,8 +335,7 @@
 			   $user_email = isset($_POST['user_email']) ? mysqli_real_escape_string($the_connection,$_POST['user_email']) : "";
 			   $user_password = isset($_POST['user_password']) ? mysqli_real_escape_string($the_connection,$_POST['user_password']) : "";
 			   $user_passwordconf = isset($_POST['user_passwordconf']) ? mysqli_real_escape_string($the_connection,$_POST['user_passwordconf']) : ""; 
-			 
-			   
+			 			   
 			   if(preg_match('/^(?=.*\d)(?=.*[A-Za-z])[0-9A-Za-z!@#$%]{8,16}$/', $user_password) && preg_match('/^(?=.*\d)(?=.*[A-Za-z])[0-9A-Za-z!@#$%]{8,16}$/', $user_passwordconf))
 			   {
 					$valid_password = true;
@@ -355,41 +362,46 @@
 			   {
 					$valid_password1 = false;
 			   }
-				
-				if($valid_email == true)
-				{				
-					if($valid_password == true)
-					{
-						if($valid_password1 == true)
+
+				//If all data entered is incorrect
+				if(!$valid_password == true && !$valid_email == true &&  !$valid_password1 == true)
+				{
+					$this->errorDetails();
+				}
+				else
+				{
+					if($valid_email == true)
+					{				
+						if($valid_password == true)
 						{
-							$passwordhash = hash('sha256', $password); //hash password
-							$sql = "INSERT INTO users (user_fullname, user_email, user_password) VALUES ('$user_fullname', '$user_email', '".md5($user_passwordhash)."')";
-							if (!mysqli_query($the_connection, $sql)) 
+							if($valid_password1 == true)
 							{
-								echo "Error: " . $sql . "<br>" . mysqli_error($the_connection);
+								$passwordhash = hash('sha256', $password); //hash password
+								$sql = "INSERT INTO users (user_fullname, user_email, user_password) VALUES ('$user_fullname', '$user_email', '".md5($user_passwordhash)."')";
+								if (!mysqli_query($the_connection, $sql)) 
+								{
+									echo "Error: " . $sql . "<br>" . mysqli_error($the_connection);
+								}
+								else
+								{
+									$this->GoBack();
+								}
 							}
 							else
 							{
-								$this->GoBack();
+								$this->errorMatch();
 							}
 						}
 						else
 						{
-							$this->errorMatch();
+						$this->errorRequirementss();
 						}
 					}
 					else
 					{
-						$this->errorRequirements();
-					}
-				}
-				else
-				{
 					$this->errorRegisterPage();
-				}				
-		   
-			  
-			   
+					}				
+				}
 			   
 			   
 			   /*
