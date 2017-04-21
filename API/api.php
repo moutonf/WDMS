@@ -322,9 +322,9 @@
 		} 
 		
 		
-		
 		private function insertUser()
 		{
+
 			if($_SERVER['REQUEST_METHOD'] == "POST")
 			{
 			   $valid_password = false;
@@ -335,6 +335,7 @@
 			   $user_email = isset($_POST['user_email']) ? mysqli_real_escape_string($the_connection,$_POST['user_email']) : "";
 			   $user_password = isset($_POST['user_password']) ? mysqli_real_escape_string($the_connection,$_POST['user_password']) : "";
 			   $user_passwordconf = isset($_POST['user_passwordconf']) ? mysqli_real_escape_string($the_connection,$_POST['user_passwordconf']) : ""; 
+		
 			 			   
 			   if(preg_match('/^(?=.*\d)(?=.*[A-Za-z])[0-9A-Za-z!@#$%]{8,16}$/', $user_password) && preg_match('/^(?=.*\d)(?=.*[A-Za-z])[0-9A-Za-z!@#$%]{8,16}$/', $user_passwordconf))
 			   {
@@ -362,7 +363,7 @@
 			   {
 					$valid_password1 = false;
 			   }
-
+		
 				//If all data entered is incorrect
 				if(!$valid_password == true && !$valid_email == true &&  !$valid_password1 == true)
 				{

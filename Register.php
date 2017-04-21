@@ -10,8 +10,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <img src="images/123.png"class="img-rounded" width="300" height="130"/>
         <style>.img-rounded</style>
-		
-       
 
         <!-- CSS -->
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
@@ -19,7 +17,7 @@
         <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
 		<link rel="stylesheet" href="assets/css/form-elements.css">
         <link rel="stylesheet" href="assets/css/style.css">
-
+	
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -33,6 +31,14 @@
         <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
         <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
         <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+		
+			     <!-- Javascript -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.2.0/zxcvbn.js"></script>
+        <script src="assets/js/jquery-1.11.1.min.js"></script>
+        <script src="/WDMT/assets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="/WDMT/assets/js/jquery.backstretch.min.js"></script>
+        <script src="/WDMT/assets/js/scripts.js"></script>
+		
 		
         <title>Register</title>
     </head>
@@ -101,8 +107,12 @@
 				                        </div>
 
 										<div class="form-group">
-				                        	<label class="sr-only" for="user_password">Password</label>
-				                        	<input type="password" required name="user_password" placeholder="Password..." class="form-email form-control" id="user_password">
+											<section>
+												<label class="sr-only" for="user_password">Password</label>
+												<input type="password" required name="user_password" placeholder="Password..." class="form-email form-control" id="user_password">
+												<meter hidden max="4" id="password-strength-meter"></meter>
+												<p id="password-strength-text"></p>
+											</section>
 				                        </div>
 										
 										<div class="form-group">
@@ -138,13 +148,9 @@
         	</div>
         </footer>
 
-        <!-- Javascript -->
-        <script src="assets/js/jquery-1.11.1.min.js"></script>
-        <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-        <script src="assets/js/jquery.backstretch.min.js"></script>
-        <script src="assets/js/scripts.js"></script>
+   
+
 		
-						
                       
     </body>
 </html>

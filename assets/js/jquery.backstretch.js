@@ -373,5 +373,8 @@
       (ieversion && ieversion <= 6)
     );
   }());
+  
+
+	
 
 }(jQuery, window));
