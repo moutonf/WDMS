@@ -13,10 +13,11 @@
 
         <!-- CSS -->
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
-        <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-        <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
-		<link rel="stylesheet" href="assets/css/form-elements.css">
-        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="/WDMT/assets/bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="/WDMT/assets/css/style.css"> 
+        <link rel="stylesheet" href="/WDMT/assets/font-awesome/css/font-awesome.min.css">
+		<link rel="stylesheet" href="/WDMT/assets/css/form-elements.css">
+        
 	
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -32,13 +33,7 @@
         <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
         <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
 		
-			     <!-- Javascript -->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.2.0/zxcvbn.js"></script>
-        <script src="assets/js/jquery-1.11.1.min.js"></script>
-        <script src="/WDMT/assets/bootstrap/js/bootstrap.min.js"></script>
-        <script src="/WDMT/assets/js/jquery.backstretch.min.js"></script>
-        <script src="/WDMT/assets/js/scripts.js"></script>
-		
 		
         <title>Register</title>
     </head>
@@ -105,7 +100,7 @@
 				                        	<label class="sr-only" for="form-email">Email</label>
 				                        	<input type="text" required name="user_email" placeholder="Email..." class="form-email form-control" id="user_email">
 				                        </div>
-
+										
 										<div class="form-group">
 											<section>
 												<label class="sr-only" for="user_password">Password</label>
@@ -116,7 +111,7 @@
 				                        </div>
 										
 										<div class="form-group">
-				                        	<label class="sr-only" for="user_passwordconf">Password</label>
+								         	<label class="sr-only" for="user_passwordconf">Password</label>
 				                        	<input type="password" required name="user_passwordconf" placeholder="Confirm Password..." class="form-password form-control" id="user_passwordconf">
 				                        </div>
 										
@@ -148,9 +143,11 @@
         	</div>
         </footer>
 
-   
-
-		
-                      
+        <!-- Javascript --> 
+		<script src="/WDMT/assets/js/jquery-1.11.1.min.js"></script>
+        <script src="/WDMT/assets/bootstrap/js/bootstrap.min.js"></script>
+		<script src="/WDMT/assets/js/password.js"></script> 
+        <script src="/WDMT/assets/js/jquery.backstretch.min.js"></script>
+		             
     </body>
 </html>

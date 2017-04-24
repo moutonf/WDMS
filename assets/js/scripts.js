@@ -50,9 +50,8 @@ jQuery(document).ready(function()
     	
     });
     
-	
+
     
 });
 	
-
 
