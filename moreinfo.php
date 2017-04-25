@@ -45,8 +45,6 @@ session_start();
 			
 			$userfile_id = $_REQUEST['UserFileID'];
 	
-			
-
 			$FileID= "";
 			$servername = "127.0.0.1";
 			$username = "root";
@@ -81,191 +79,146 @@ session_start();
 						</p>
 					</div>	
 				</div>
-                <div class ="container">
-					<div class="row">
-						<div class="col-sm-5">
-							<div class="form-box">
-								<div class="form-top">
-	                        		<div class = "form-top-left">
-	                        			<h3>File Name: <b><?php echo $file_name; ?> </b></h3>
-	                            		
-	                        		</div>
-	                        		<div class="form-top-right">
-	                        			
-										<a href="/WDMT/Home.php"><i class="fa fa-backward"></i></a>
-	                        		</div>
-	                            </div>
-								<div class="form-bottom">
-									<form name="home" action="/WDMT/API/updateFlag" class="login-form" method="POST">
-											
-										
-                        <table style = "border: inset 1px black; width: 100%" class="table">
-                            <thead>
-                              <tr style = "color: #00bfff ; width: 100%; font-weight: 200%">
-                                   
-                                    <th>File Path</th>
-									<th>File Status</th>
-                                    <th>Last Checked</th>
-                                    <th>Last Modified</th>
-                                    <th>Size</th>
-									<th>Action</th>
-                                    
-                              </tr>
-
-                            <?php
-
-
-                            
-                            
-  
-                            $conn2 = new mysqli($servername, $username, $password, $dbname);
-                            $query2 ="SELECT * FROM USERFILE WHERE userfile_id = '".$userfile_id."'";
-                            $result = mysqli_query($conn2,$query2);
-                            while (@$row = mysqli_fetch_row($result)){
-                                //var_dump($row[2])."\r\n";
-                               //taking data from database to views the form table
-                              $FileID=$row[0];
-							  $field=$row[4];
-                              $colour=$row[4];
-							  $file_size = $row[7];
-							  $fileSizeInKb = round($file_size, 2);
-							  
-                              echo "<tr tr class ='' style = 'color : 	#f5f4c4	;font-size: 14px;'>";
-                              echo"<th>";
-                              
-                              echo $row[9];
-                             echo"</th><th>";
-							  
-										if($field == "0")
-										{
-											echo '<img src="images/circle-xxl.png"" alt="" width="15" height="15"/>';
-										}
-										if($field == "1")
-										{
-											echo '<img src="images/yellow.png"" alt="" width="15" height="15"/>';
-										}
-										if($field == "2")
-										{
-											echo '<img src="images/red.png"" alt="" width="15" height="15"/>';
-										}
-									
-                              //echo $row[4];
-                              
-                              echo"</th><th>";
-                              echo $row[5];
-                              echo"</th><th>";
-							  echo $row[6];
-                              echo"</th><th>";
-                              echo $fileSizeInKb . " Kb";
-							  
-                               echo"</th><th>";
-
-                           echo " <select  id ='bk' name='flag' style = '' >";																							
-								$conn2 = new mysqli($servername, $username, $password, $dbname);
-								$query2 ="SELECT replace_flag FROM USERFILE WHERE userfile_id= $userfile_id ";
-								$result = mysqli_query($conn2,$query2);
-								while (@$row = mysqli_fetch_row($result)){
-								echo "<option value =".  $row[0] ." disabled>"  . $row[0]. "</option>";
-								echo "<option value ='0'>do not replace</option>";
-								echo "<option value ='1'>replace</option>";
-								}
-
+            <div class ="container">
+				<div class="row">
+					<div class="col-sm-5">
+						<div class="form-box">
+							<div class="form-top">
+								<div class = "form-top-left">
+									<h3>File Name: <b><?php echo $file_name; ?> </b></h3>
+								</div>
+								
+								<div class="form-top-right">		
+									<a href="/WDMT/Home.php"><i class="fa fa-backward"></i></a>
+								</div>
+	                        </div>
+							<div class="form-bottom">
+								<form name="home" action="/WDMT/API/updateFlag" class="login-form" method="POST">
+									<table style = "border: inset 1px black; width: 100%" class="table">
+										<thead>
+										  <tr style = "color: #00bfff ; width: 100%; font-weight: 200%">
+											   
+												<th>File Path</th>
+												<th>File Status</th>
+												<th>Last Checked</th>
+												<th>Last Modified</th>
+												<th>Size</th>
+												<th>Action</th>
 												
+										  </tr>
+											<?php
+				 
+												$conn2 = new mysqli($servername, $username, $password, $dbname);
+												$query2 ="SELECT * FROM USERFILE WHERE userfile_id = '".$userfile_id."'";
+												$result = mysqli_query($conn2,$query2);
+												while (@$row = mysqli_fetch_row($result))
+												{
+													//var_dump($row[2])."\r\n";
+												   //taking data from database to views the form table
+													$FileID=$row[0];
+													$field=$row[4];
+													$colour=$row[4];
+													$file_size = $row[7];
+													$fileSizeInKb = round($file_size, 2);
+												  
+													echo "<tr tr class ='' style = 'color : 	#f5f4c4	;font-size: 14px;'>";
+													echo"<th>";
+												  
+													echo $row[9];
+													echo"</th><th>";
+												  
+															if($field == "0")
+															{
+																echo '<img src="images/circle-xxl.png"" alt="" width="15" height="15"/>';
+															}
+															if($field == "1")
+															{
+																echo '<img src="images/yellow.png"" alt="" width="15" height="15"/>';
+															}
+															if($field == "2")
+															{
+																echo '<img src="images/red.png"" alt="" width="15" height="15"/>';
+															}
+														
+												  //echo $row[4];
+												  
+													echo"</th><th>";
+													echo $row[5];
+													echo"</th><th>";
+													echo $row[6];
+													echo"</th><th>";
+													echo $fileSizeInKb . " Kb";
+												  
+													echo"</th><th>";
+
+													echo " <select  id ='bk' name='flag' style = '' >";																							
+													$conn2 = new mysqli($servername, $username, $password, $dbname);
+													$query2 ="SELECT replace_flag FROM USERFILE WHERE userfile_id= $userfile_id ";
+													$result = mysqli_query($conn2,$query2);
+													while (@$row = mysqli_fetch_row($result))
+													{
+														echo "<option value =".  $row[0] ." disabled>"  . $row[0]. "</option>";
+														echo "<option value ='0'>do not replace</option>";
+														echo "<option value ='1'>replace</option>";
+													}
+													echo "</select>";                                            
+													echo "</th></tr>";}
+													$conn->close();
+											?>
+
+											<script>
+												var op = document.getElementById("bk").getElementsByTagName("option");
+												for (var i = 0; i < op.length; i++) {
+												// lowercase comparison for case-insensitivity
+													if(op[i].value.toLowerCase()=="0")
+													{
+														op[i+2].disabled = true;
+													}
+													else if(op[i].value.toLowerCase()=="1")
+													{
+														op[i+1].disabled = true;			
+													}
+												//(op[i].value.toLowerCase() == "0") 
+												//? op[i].disabled = true 
+												//: op[i].disabled = false ;
+												}
 											
-											echo "</select>";
-                                                                                      
-											echo "</th></tr>";}
-                            $conn->close();
-                            ?>
-
-                    <script>
-					
-					
-						
-						var op = document.getElementById("bk").getElementsByTagName("option");
-						for (var i = 0; i < op.length; i++) {
-						// lowercase comparison for case-insensitivity
-							if(op[i].value.toLowerCase()=="0")
-							{
-								op[i+2].disabled = true;
-								
-
-
-							}
-							else if(op[i].value.toLowerCase()=="1")
-							{
-								op[i+1].disabled = true;
-								
-							}
-						//(op[i].value.toLowerCase() == "0") 
-						//? op[i].disabled = true 
-						//: op[i].disabled = false ;
-						}
-						
-					
-			
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-                    // put your code here
-                    /********************************************************
-                       *    Utility functions for datatable column display     *
-                       ********************************************************/
-                       function getColour(val)
-                       {
-                                    // Do not draw the rectangle if indicator does not have a tlp marking/tag
-                                    if(val != "red" && val != "green" && val != "white" && val != "amber") return "";
-                                    var svg1 = "<svg width=\"20\" height=\"20\"><circle cx=\"10\" cy=\"10\" r=\"9\" width=\"35\" height=\"26\" style=\'fill:";
-                                    var svg2 = ";\stroke:black;stroke-width:1.2;opacity:0.6\'></circle></svg>"
-                                    if(val.toLowerCase() == "amber") return svg1 + "yellow" + svg2;
-                                    else
-                                            return svg1 + val + svg2;
-                       }
-                    var table = $(".table");
-                            var $tr = $("tr").append(
-                                    $("<td>").html(getColour("green"))
-                            );
-                            $tr.appendTo(".table > tbody");
-
-                    </script>
-
-               </thead>
-             </tbody>
-			
-            </table> 
-									
+											// put your code here
+											/********************************************************
+											   *    Utility functions for datatable column display     *
+											   ********************************************************/
+											   function getColour(val)
+											   {
+															// Do not draw the rectangle if indicator does not have a tlp marking/tag
+															if(val != "red" && val != "green" && val != "white" && val != "amber") return "";
+															var svg1 = "<svg width=\"20\" height=\"20\"><circle cx=\"10\" cy=\"10\" r=\"9\" width=\"35\" height=\"26\" style=\'fill:";
+															var svg2 = ";\stroke:black;stroke-width:1.2;opacity:0.6\'></circle></svg>"
+															if(val.toLowerCase() == "amber") return svg1 + "yellow" + svg2;
+															else
+															return svg1 + val + svg2;
+											   }
+												var table = $(".table");
+												var $tr = $("tr").append($("<td>").html(getColour("green")));
+												$tr.appendTo(".table > tbody");
+											</script>
+										</thead>
+									</table> 
 									<input type="hidden" name="userfile_id" value=" <?php echo $userfile_id; ?>">
 									<button type="submit" class="btn" style = "padding: 5px 100px 2px 100px;">Update Flag</button>	
-									</form>
-									
-										
-    </body>
-</html>
-								
+									</form>														
 							</div>
 						</div>	
 					</div>
 				</div>
 			</div>
 		</div>
-		<form action="/WDMT/API/Logout" method="POST">
-			<button type="submit" class="btn" style = "padding: 5px 100px 2px 100px;">Log Out</button>
-		</form>
+			<form action="/WDMT/API/Logout" method="POST">
+				<button type="submit" class="btn" style = "padding: 5px 100px 2px 100px;">Log Out</button>
+			</form>
 	</div>
-		
-		
 		 <footer>
         	<div class="container">
-        		<div class="row">
-        			
+        		<div class="row">   			
         			<div class="col-sm-8 col-sm-offset-2">
         				<div class="footer-border"></div>
         				<p>By CSIR VACWORK STUDENTS at <a href="http://defsec.csir.co.za/" target="_blank"><strong>CCIW UNIT</strong></a> 
@@ -280,7 +233,8 @@ session_start();
         <script src="assets/js/jquery-1.11.1.min.js"></script>
         <script src="assets/bootstrap/js/bootstrap.min.js"></script>
         <script src="assets/js/jquery.backstretch.min.js"></script>
-        <script src="assets/js/scripts.js"></script>
-		
-						
+        <script src="assets/js/scripts.js"></script>		
+   </body>
+</html>
+									
                       

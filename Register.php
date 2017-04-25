@@ -115,7 +115,7 @@
 				                        	<input type="password" required name="user_passwordconf" placeholder="Confirm Password..." class="form-password form-control" id="user_passwordconf">
 				                        </div>
 										
-										<button type="submit" class="btn">Sign Up</button>
+									<button type="submit" class="btn">Sign Up</button>
 									</form>	
 									<center>
 									<a href = "index.php"> Log In </a>
@@ -126,9 +126,7 @@
 				</div>
 			</div>
 		</div>			
-	</div>
-		
-		
+	</div>	
 		 <footer>
         	<div class="container">
         		<div class="row">
