@@ -13,10 +13,10 @@
 
         <!-- CSS -->
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
-        <link rel="stylesheet" href="/WDMT/assets/bootstrap/css/bootstrap.min.css">
-		<link rel="stylesheet" href="/WDMT/assets/css/style.css"> 
-        <link rel="stylesheet" href="/WDMT/assets/font-awesome/css/font-awesome.min.css">
-		<link rel="stylesheet" href="/WDMT/assets/css/form-elements.css">
+        <link rel="stylesheet" href="/WDMS/assets/bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="/WDMS/assets/css/style.css"> 
+        <link rel="stylesheet" href="/WDMS/assets/font-awesome/css/font-awesome.min.css">
+		<link rel="stylesheet" href="/WDMS/assets/css/form-elements.css">
         
 	
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -90,7 +90,7 @@
 	                        		</div>
 	                            </div>
 								<div class="form-bottom">
-									<form name="login" action="/WDMT/API/insertUser" class="login-form" method="POST">																												
+									<form name="login" action="/WDMS/API/insertUser" class="login-form" method="POST">																												
 										<div class="form-group">
 				                    		<label class="sr-only" for="user_fullname">Full names</label>
 				                        	<input type="text" required name="user_fullname" placeholder="Full names..." class="form-first-name form-control" id="user_fullname">
@@ -142,10 +142,10 @@
         </footer>
 
         <!-- Javascript --> 
-		<script src="/WDMT/assets/js/jquery-1.11.1.min.js"></script>
-        <script src="/WDMT/assets/bootstrap/js/bootstrap.min.js"></script>
-		<script src="/WDMT/assets/js/password.js"></script> 
-        <script src="/WDMT/assets/js/jquery.backstretch.min.js"></script>
+		<script src="/WDMS/assets/js/jquery-1.11.1.min.js"></script>
+        <script src="/WDMS/assets/bootstrap/js/bootstrap.min.js"></script>
+		<script src="/WDMS/assets/js/password.js"></script> 
+        <script src="/WDMS/assets/js/jquery.backstretch.min.js"></script>
 		             
     </body>
 </html>

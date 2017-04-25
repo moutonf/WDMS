@@ -86,7 +86,7 @@ table.sortable thead {
 									<div class="form-top-right">
 	                        			
 
-										<a href="/WDMT/intranet.php"><i class="fa fa-refresh"></i></a>
+										<a href="/WDMS/intranet.php"><i class="fa fa-refresh"></i></a>
 	                        		</div>
 									
 									<form class = "form-control">
@@ -124,7 +124,7 @@ table.sortable thead {
 	                        		
 	                            </div>
 								<div class="form-bottom">
-									<form name="login" action="/WDMT/API/Logout" class="login-form" method="POST">
+									<form name="login" action="/WDMS/API/Logout" class="login-form" method="POST">
 											
 										
                         <table style = "border: inset 1px black; width: 100%" class="sortable">
@@ -227,14 +227,14 @@ table.sortable thead {
 					</div>
 				</div>
 			</div>
-			<!--<form name = "delete" action = "/WDMT/delete.php" method = "POST">
+			<!--<form name = "delete" action = "/WDMS/delete.php" method = "POST">
 										
 			<button type="submit" name="btnDelete" class="btn" "padding: 5px 500px 2px 500px;">Delete </button><br/>
 										
 		</form>-->
 		</div>
 		
-		<form action="/WDMT/API/Logout" method="POST">
+		<form action="/WDMS/API/Logout" method="POST">
 			<button type="submit" class="btn" style = "padding: 5px 100px 2px 100px;">Log Out</button>
 		</form>
 	</div>

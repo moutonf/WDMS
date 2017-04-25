@@ -91,13 +91,13 @@ table.sortable thead {
 	                        		</div>
 	                        		<div class="form-top-right">
 	                        			<!--<i class="fa fa-info-circle"></i>-->
-										<a href="/WDMT/Home.php"><i class="fa fa-refresh"></i></a>
+										<a href="/WDMS/Home.php"><i class="fa fa-refresh"></i></a>
 	                        		</div>
 	                            </div>
 								<div class="form-bottom">
 								
 									
-									<form name="home" action="/WDMT/API/Logout" class="login-form" method="POST">
+									<form name="home" action="/WDMS/API/Logout" class="login-form" method="POST">
 											
 										
                         <table style = "border: inset 1px black; width: 100%" name="myTable" class="sortable">
@@ -169,7 +169,7 @@ table.sortable thead {
 				</div>
 			</div>
 		</div>
-		<form action="/WDMT/API/Logout" method="POST">
+		<form action="/WDMS/API/Logout" method="POST">
 			<button type="submit" class="btn" style = "padding: 5px 100px 2px 100px;">Log Out</button>
 		</form>
 	</div>

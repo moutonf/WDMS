@@ -74,8 +74,8 @@ session_start();
 	                            		
 	                        		</div>
 									<div class="form-top-right">
-	                        			<a href="/WDMT/intranet.php"><i class="fa fa-backward"></i></a>
-										<a href="/WDMT/delete.php"><i class="fa fa-refresh"></i></a>
+	                        			<a href="/WDMS/intranet.php"><i class="fa fa-backward"></i></a>
+										<a href="/WDMS/delete.php"><i class="fa fa-refresh"></i></a>
 	                        		</div>
 									<div class="">
 									<form class = "form-control">
@@ -141,7 +141,7 @@ session_start();
 													?>
 
 
-									<form name="deleteForm" action="/WDMT/delete.php" method="POST">
+									<form name="deleteForm" action="/WDMS/delete.php" method="POST">
 
 									<div class = "" style = "">
 												<select name="ip_address" class = "textarea form-control">

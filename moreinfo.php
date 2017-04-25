@@ -89,11 +89,11 @@ session_start();
 								</div>
 								
 								<div class="form-top-right">		
-									<a href="/WDMT/Home.php"><i class="fa fa-backward"></i></a>
+									<a href="/WDMS/Home.php"><i class="fa fa-backward"></i></a>
 								</div>
 	                        </div>
 							<div class="form-bottom">
-								<form name="home" action="/WDMT/API/updateFlag" class="login-form" method="POST">
+								<form name="home" action="/WDMS/API/updateFlag" class="login-form" method="POST">
 									<table style = "border: inset 1px black; width: 100%" class="table">
 										<thead>
 										  <tr style = "color: #00bfff ; width: 100%; font-weight: 200%">
@@ -157,9 +157,9 @@ session_start();
 													$result = mysqli_query($conn2,$query2);
 													while (@$row = mysqli_fetch_row($result))
 													{
-														echo "<option value =".  $row[0] ." disabled>"  . $row[0]. "</option>";
-														echo "<option value ='0'>do not replace</option>";
-														echo "<option value ='1'>replace</option>";
+														//echo "<option value =".  $row[0] .">"  . $row[0]. "</option>";
+														echo "<option value ='0'>Don't Replace File</option>";
+														echo "<option value ='1'>Replace File</option>";
 													}
 													echo "</select>";                                            
 													echo "</th></tr>";}
@@ -205,14 +205,14 @@ session_start();
 									</table> 
 									<input type="hidden" name="userfile_id" value=" <?php echo $userfile_id; ?>">
 									<button type="submit" class="btn" style = "padding: 5px 100px 2px 100px;">Update Flag</button>	
-									</form>														
+								</form>														
 							</div>
 						</div>	
 					</div>
 				</div>
 			</div>
 		</div>
-			<form action="/WDMT/API/Logout" method="POST">
+			<form action="/WDMS/API/Logout" method="POST">
 				<button type="submit" class="btn" style = "padding: 5px 100px 2px 100px;">Log Out</button>
 			</form>
 	</div>

@@ -70,7 +70,7 @@
 	                        		</div>
 									<div class="form-top-right">
 	                        			<i class="fa fa-info-circle"></i>
-										<a href="/WDMT/Update.php"><i class="fa fa-refresh"></i></a>
+										<a href="/WDMS/Update.php"><i class="fa fa-refresh"></i></a>
 	                        		</div>
 									<div class="">
 									<form class = "form-control">
@@ -106,7 +106,7 @@
 	                        		
 	                            </div>
 								<div class="form-bottom">
-									<form name="login" action="/WDMT/API/Logout" class="login-form" method="POST">
+									<form name="login" action="/WDMS/API/Logout" class="login-form" method="POST">
 											
 										
                         <table style = "border: inset 1px black; width: 100%" class="table">

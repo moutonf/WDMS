@@ -6,14 +6,14 @@
 	class API extends REST {
 
 		public $data = "";
-		public $url = "/WDMT/Home.php";
-		public $url2 = "/WDMT/Unsuccessful.php";              
-		public $url4 = "/WDMT/index.php";
-		public $url5 = "/WDMT/Register.php";
-		public $url3 = "/WDMT/intranet.php";
-		public $url6 = "/WDMT/admin.php";
-		public $url7 = "/WDMT/moreinfo.php? " . "UserFileID=". "h";
-		public $url8 = "/WDMT/Test2.php";
+		public $url = "/WDMS/Home.php";
+		public $url2 = "/WDMS/Unsuccessful.php";              
+		public $url4 = "/WDMS/index.php";
+		public $url5 = "/WDMS/Register.php";
+		public $url3 = "/WDMS/intranet.php";
+		public $url6 = "/WDMS/admin.php";
+		public $url7 = "/WDMS/moreinfo.php? " . "UserFileID=". "h";
+		public $url8 = "/WDMS/Test2.php";
 	
  
 
@@ -158,7 +158,7 @@
 			session_start();
 			$_SESSION["error"] = "Invalid Email or Password";
 			session_write_close();
-			header("Location: /WDMT/index.php");
+			header("Location: /WDMS/index.php");
 		}
 		
 		public function errorRegisterPage()
@@ -166,7 +166,7 @@
 			session_start();
 			$_SESSION["the_error"] = "Invalid Email Address";
 			session_write_close();
-			header("Location: /WDMT/Register.php");
+			header("Location: /WDMS/Register.php");
 		}
 		
 		public function errorDetails()
@@ -174,7 +174,7 @@
 			session_start();
 			$_SESSION["the_error"] = "Invalid User Details Were Entered";
 			session_write_close();
-			header("Location: /WDMT/Register.php");
+			header("Location: /WDMS/Register.php");
 		}
 		
 		public function errorMatch()
@@ -182,7 +182,7 @@
 			session_start();
 			$_SESSION["the_error1"] = "Passwords Do Not Match";
 			session_write_close();
-			header("Location: /WDMT/Register.php");
+			header("Location: /WDMS/Register.php");
 		}
 		
 		public function errorRequirements()
@@ -190,7 +190,7 @@
 			session_start();
 			$_SESSION["require_pass"] = "Passwords Does Not Meet Requirements";
 			session_write_close();
-			header("Location: /WDMT/Register.php");
+			header("Location: /WDMS/Register.php");
 		}
 		
 
@@ -296,7 +296,7 @@
 								  session_start();
 								  $_SESSION["admin"] = 'admin';
 								  session_write_close();
-								  header("Location: /WDMT/intranet.php");
+								  header("Location: /WDMS/intranet.php");
  
 							}
 							else
@@ -304,7 +304,7 @@
 								  session_start();
 								  $_SESSION["csir"] = $email;
 								  session_write_close();
-								  header("Location: /WDMT/Home.php");
+								  header("Location: /WDMS/Home.php");
 							}	  
 						}
 					}
@@ -403,85 +403,6 @@
 					$this->errorRegisterPage();
 					}				
 				}
-			   
-			   
-			   /*
-			   //Validate email
-			   if(filter_var($user_email, FILTER_VALIDATE_EMAIL))
-			   {
-
-				   if(preg_match('/^(?=.*\d)(?=.*[A-Za-z])[0-9A-Za-z!@#$%]{8,16}$/', $user_password) && preg_match('/^(?=.*\d)(?=.*[A-Za-z])[0-9A-Za-z!@#$%]{8,16}$/', $user_passwordconf))
-				   {
-						if ($user_password == $user_passwordconf )
-						{   //check if passwords match
-
-							$user_passwordhash = hash('sha256', $user_password); //hash password
-
-							//if(0 == $status)
-							//{                                      
-								//Insert data into data base
-								$sql = "INSERT INTO users (user_fullname, user_email, user_password) VALUES ('$user_fullname', '$user_email', '".md5($user_passwordhash)."')";
-								
-								// Check connection
-								if (!$the_connection) {
-									die("Connection failed: " . mysqli_connect_error());
-								}
-
-							
-								if (!mysqli_query($the_connection, $sql)) 
-								{
-									echo "Error: " . $sql . "<br>" . mysqli_error($the_connection);
-								}
-
-
-								$query2 ="SELECT user_id FROM USERS WHERE user_email = '". $user_email ."'";
-								$result = mysqli_query($the_connection,$query2);
-								while (@$row = mysqli_fetch_row($result))
-								{
-										//var_dump($row[2])."\r\n";
-								   //taking data from database to views the form table
-								  $user_id=$row[0];
-
-								  session_start();
-								  $_SESSION["csir2"] = $user_email;
-								  
-								  //returnEmail($user_email);
-								}
-								
-								
-								$query3 ="SELECT userfile_id FROM USERFILE";
-								$result3 = mysqli_query($the_connection,$query3);
-								while (@$row = mysqli_fetch_row($result3)){
-										//var_dump($row[2])."\r\n";
-								   //taking data from database to views the form table
-								  $userfile_id=$row[0];
-								}
-
-								$this->GoBack();
-
-								//$qur = $conn->query($sql);
-						   // }
-
-						}
-						else
-
-						//echo "Passwords don't match";
-						$this->response('Passwords do not match',203);
-				   }
-
-				   else
-				   {
-					   //echo "Password does't meet requirements";
-					   $this->response("Password does't meet requirements",203);
-				   }
-			   }
-			   else
-			   {
-				   //echo "Invalid email";
-				   $this->response('Invalid email',203);
-			   }
-			}*/
-
 			mysqli_close($the_connection);
 
 			/* Output header */
@@ -567,14 +488,29 @@
 		
 		private function updateFlag()
 		{
+			$the_connection = mysqli_connect("127.0.0.1","root","","academycity");
+			$selectOption = $_POST['flag'];
+			$ourfile = $_POST['userfile_id'];
+			$sql = "UPDATE userfile SET replace_flag = '". $selectOption ."' WHERE userfile_id = '". $ourfile ."'";
+			
 		
+			if (!mysqli_query($the_connection, $sql)) 
+			{
+				echo "Error: " . $sql . "<br>" . mysqli_error($the_connection);
+			}
+			else
+			{
+				$this->Redirect();
+			}
+		
+		/*
 		    $the_connection = mysqli_connect("127.0.0.1","root","","academycity");
 			
 			if($this->get_request_method() != "POST")
 			{
 				$this->response('',406);
 			}
-			//Validate password
+			//Get Variables
             $flag = $this->_request['flag'];
 			$userfile_id = $this->_request['userfile_id'];
 	
@@ -583,7 +519,8 @@
 			$sql = mysqli_query($the_connection,"UPDATE userfile SET replace_flag = '". $selectOption ."' WHERE userfile_id = '". $ourfile ."'");
 			echo $ourfile. '<br/>'; 
 			echo $selectOption;
-			//$this->Redirect3();
+		
+			*/
 				
 			mysqli_close($the_connection);
 		}
