@@ -14,9 +14,10 @@
         <!-- CSS -->
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
         <link rel="stylesheet" href="/WDMT/assets/bootstrap/css/bootstrap.min.css">
-		<link rel="stylesheet" href="/WDMT/assets/css/style.css"> 
         <link rel="stylesheet" href="/WDMT/assets/font-awesome/css/font-awesome.min.css">
 		<link rel="stylesheet" href="/WDMT/assets/css/form-elements.css">
+		<link rel="stylesheet" href="/WDMT/assets/css/style.css"> 
+		<link rel="stylesheet" href="/WDMT/assets/css/password.css"> 
         
 	
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -104,8 +105,8 @@
 										<div class="form-group">
 											<section>
 												<label class="sr-only" for="user_password">Password</label>
-												<input type="password" required name="user_password" placeholder="Password..." class="form-email form-control" id="user_password">
-												<meter hidden max="4" id="password-strength-meter"></meter>
+												<input type="password" required name="user_password" placeholder="Password..." class="form-email form-control" id="user_password" >
+												<meter  max="4" id="password-strength-meter"  class="no-appearance"></meter>
 												<p id="password-strength-text"></p>
 											</section>
 				                        </div>
@@ -143,9 +144,10 @@
 
         <!-- Javascript --> 
 		<script src="/WDMT/assets/js/jquery-1.11.1.min.js"></script>
+		<script src="/WDMT/assets/js/scripts.js"></script> 
         <script src="/WDMT/assets/bootstrap/js/bootstrap.min.js"></script>
-		<script src="/WDMT/assets/js/password.js"></script> 
         <script src="/WDMT/assets/js/jquery.backstretch.min.js"></script>
+		
 		             
     </body>
 </html>

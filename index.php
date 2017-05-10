@@ -50,7 +50,7 @@
 						</p>
 					</div>							
 				</div>
-            <div class ="inner-bg " style = "padding:10px 10px 50px 660px; ">
+            <div class ="inner-bg " >
                 <div class ="container" >	
 					<div class="col-sm-5">
 						<div class="row">
