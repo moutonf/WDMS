@@ -14,7 +14,7 @@ GSAHFJASFA
         <?php
         // put your code here
 
-        $url = "/WDMT/Register.php";
+        $url = "/WDMS/Register.php";
 
             function GoBackRegister (){
                 if (headers_sent()){
@@ -30,7 +30,7 @@ GSAHFJASFA
             <div class ="row main">
                 <div class ="main-login main-center">
                     <h2>Sign Up</h2>
-                    <form name="login" action="/WDMT/Register.php" method="POST">
+                    <form name="login" action="/WDMS/Register.php" method="POST">
 
 
                         <div class ="form-group">

@@ -58,7 +58,7 @@
 	                        		</div>
 	                            </div>
 								<div class="form-bottom">
-									<form name="login" action="/WDMT/API/login2" class="login-form" method="POST">
+									<form name="login" action="/WDMS/API/login2" class="login-form" method="POST">
 										<div class ="form-group">
 											<label for="admin_email" class="sr-only">E-mail</label>
 											<input type="text" id ="admin_email" required name="admin_email" value="" class ="form-username form-control" placeholder="Enter your email" /> <!--- Email input box--->								
