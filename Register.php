@@ -13,20 +13,14 @@
 
         <!-- CSS -->
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
-<<<<<<< HEAD
+
         <link rel="stylesheet" href="/WDMT/assets/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="/WDMT/assets/font-awesome/css/font-awesome.min.css">
 		<link rel="stylesheet" href="/WDMT/assets/css/form-elements.css">
 		<link rel="stylesheet" href="/WDMT/assets/css/style.css"> 
 		<link rel="stylesheet" href="/WDMT/assets/css/password.css"> 
-=======
-        <link rel="stylesheet" href="/WDMS/assets/bootstrap/css/bootstrap.min.css">
-		<link rel="stylesheet" href="/WDMS/assets/css/style.css"> 
-        <link rel="stylesheet" href="/WDMS/assets/font-awesome/css/font-awesome.min.css">
-		<link rel="stylesheet" href="/WDMS/assets/css/form-elements.css">
->>>>>>> 46a0fe80a23a96f3cc7112b7ad167c5fb10d2b79
-        
-	
+
+
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
