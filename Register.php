@@ -40,23 +40,24 @@
         <title>Register</title>
     </head>
     <body>
-        <div class ="top-content">
-            <div class ="inner-bg">
-				<div class ="row">
-					<div class ="description">
-						<p>
-							<h1 style = "font : normal 25px/25px Georgia, sans-serif; color : white ;">Web Defacement Monitoring Tool</h1>	
-						</p>
-					</div>	
-				</div>
-                <div class ="container">
-					<div class="row">
-						<div class="col-sm-5">
-							<div class="form-box">
+      
+	<div class ="top-content">
+		<div class ="inner-sm inner-md inner-lg inner-lx">
+					<div class ="row">
+						<div class ="description">
+							<p>
+								<h1 style = "font : normal 25px/25px Georgia, sans-serif; color : white ;">Web Defacement Monitoring Tool</h1>	
+							</p>
+						</div>	
+					</div>
+			<div class ="container">
+				<div class="row">
+			       <div class="col-sm-5 col-sm-offset-4 col-md-4 col-md-offset-3">
+						<div class="form-box">
 								<div class="form-top">
-	                        		<div class = "form-top-left">
-	                        			<h3>Sign Up!</h3>
-	                            		<p>			
+									<div class = "form-top-left">
+										<h3>Sign Up!</h3>
+										<p>			
 											<?php
 												if (isset($_SESSION["the_error"]) == NULL && isset($_SESSION["the_error1"]) == NULL && isset($_SESSION["require_pass"]) == NULL)
 												{
@@ -82,47 +83,46 @@
 											<?php 
 												$_SESSION["the_error"] = NULL;
 												$_SESSION["the_error1"] = NULL;
-												$_SESSION["require_pass"] = NULL;
-												
+												$_SESSION["require_pass"] = NULL;												
 											?>
 										</p>
-	                        		</div>
-	                        		<div class="form-top-right">
-	                        			<i class="fa fa-lock"></i>
-	                        		</div>
-	                            </div>
+									</div>
+									<div class="form-top-right">
+										<i class="fa fa-lock"></i>
+									</div>
+								</div>
 								<div class="form-bottom">
-									<form name="login" action="/WDMS/API/insertUser" class="login-form" method="POST">																												
-										<div class="form-group">
-				                    		<label class="sr-only" for="user_fullname">Full names</label>
-				                        	<input type="text" required name="user_fullname" placeholder="Full names..." class="form-first-name form-control" id="user_fullname">
-				                        </div>
+										<form name="login" action="/WDMS/API/insertUser" class="login-form" method="POST">																												
+											<div class="form-group">
+												<label class="sr-only" for="user_fullname">Full names</label>
+												<input type="text" required name="user_fullname" placeholder="Full names..." class="form-first-name form-control" id="user_fullname">
+											</div>
 
-				                        <div class="form-group">
-				                        	<label class="sr-only" for="form-email">Email</label>
-				                        	<input type="text" required name="user_email" placeholder="Email..." class="form-email form-control" id="user_email">
-				                        </div>
-										
-										<div class="form-group">
-											<section>
-												<label class="sr-only" for="user_password">Password</label>
-												<input type="password" required name="user_password" placeholder="Password..." class="form-email form-control" id="user_password" >
-												<meter  max="4" id="password-strength-meter"  class="no-appearance"></meter>
-												<p id="password-strength-text"></p>
-											</section>
-				                        </div>
-										
-										<div class="form-group">
-								         	<label class="sr-only" for="user_passwordconf">Password</label>
-				                        	<input type="password" required name="user_passwordconf" placeholder="Confirm Password..." class="form-password form-control" id="user_passwordconf">
-				                        </div>
-										
-									<button type="submit" class="btn">Sign Up</button>
-									</form>	
-									<center>
-									<a href = "index.php"> Log In </a>
-									</center>
-							</div>
+											<div class="form-group">
+												<label class="sr-only" for="form-email">Email</label>
+												<input type="text" required name="user_email" placeholder="Email..." class="form-email form-control" id="user_email">
+											</div>
+											
+											<div class="form-group">
+												<section>
+													<label class="sr-only" for="user_password">Password</label>
+													<input type="password" required name="user_password" placeholder="Password..." class="form-email form-control" id="user_password" >
+													<meter  max="4" id="password-strength-meter"  class="no-appearance"></meter>
+													<p id="password-strength-text"></p>
+												</section>
+											</div>
+											
+											<div class="form-group">
+												<label class="sr-only" for="user_passwordconf">Password</label>
+												<input type="password" required name="user_passwordconf" placeholder="Confirm Password..." class="form-password form-control" id="user_passwordconf">
+											</div>
+											
+											<button type="submit" class="btn">Sign Up</button>
+										</form>	
+										<center>
+											<a href = "index.php"> Log In </a>
+										</center>
+								</div>
 						</div>	
 					</div>
 				</div>
@@ -144,18 +144,12 @@
         </footer>
 
         <!-- Javascript --> 
-<<<<<<< HEAD
+
 		<script src="/WDMT/assets/js/jquery-1.11.1.min.js"></script>
 		<script src="/WDMT/assets/js/scripts.js"></script> 
         <script src="/WDMT/assets/bootstrap/js/bootstrap.min.js"></script>
         <script src="/WDMT/assets/js/jquery.backstretch.min.js"></script>
 		
-=======
-		<script src="/WDMS/assets/js/jquery-1.11.1.min.js"></script>
-        <script src="/WDMS/assets/bootstrap/js/bootstrap.min.js"></script>
-		<script src="/WDMS/assets/js/password.js"></script> 
-        <script src="/WDMS/assets/js/jquery.backstretch.min.js"></script>
->>>>>>> 46a0fe80a23a96f3cc7112b7ad167c5fb10d2b79
 		             
     </body>
 </html>
