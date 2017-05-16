@@ -52,7 +52,7 @@
 			</div>
 				<div class ="inner-sm inner-md inner-lg inner-xl" >
 					<div class ="container" >	
-						<div class="col-sm-5 col-sm-offset-4 col-md-4 col-md-offset-3">
+						<div class="col-sm-3 col-sm-offset-2 col-md-4 col-md-offset-4">
 							<div class="row">
 								<div class="form-box">
 									<div class="form-top">
