@@ -30,7 +30,7 @@ table.sortable thead {
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
         <!--<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">-->
         <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
-		<link rel="stylesheet" href="assets/css/form-elements.css">
+	<link rel="stylesheet" href="assets/css/form-elements.css">
         <link rel="stylesheet" href="assets/css/style.css">
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -122,7 +122,7 @@ table.sortable thead {
                                 //var_dump($row[2])."\r\n";
                                //taking data from database to views the form table
                               $FileID=$row[0];
-							  $field=$row[4];
+			      $field=$row[4];
                               //$colour=$row[11];
                               echo "<tr class ='' style = 'color : 	#f5f4c4	;font-size: 14px;'>";
                               echo"<th>";
@@ -132,18 +132,18 @@ table.sortable thead {
                               echo $row[1];
                               echo"</th><th>";
 							  
-										if($field == "0")
-										{
-											echo '<img src="images/circle-xxl.png" alt="" width="15" height="15"/>';
-										}
-										if($field == "1")
-										{
-											echo '<img src="images/yellow.png" alt="" width="15" height="15"/>';
-										}
-										if($field == "2")
-										{
-											echo '<img src="images/red.png" alt="" width="15" height="15"/>';
-										}
+				if($field == "0")
+				{
+					echo '<img src="images/circle-xxl.png" alt="" width="15" height="15"/>';
+				}
+				if($field == "1")
+				{
+					echo '<img src="images/yellow.png" alt="" width="15" height="15"/>';
+				}
+				if($field == "2")
+				{
+					echo '<img src="images/red.png" alt="" width="15" height="15"/>';
+				}
 									
 									
                               //echo $row[4];
